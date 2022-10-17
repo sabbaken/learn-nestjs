@@ -1,5 +1,4 @@
 import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post } from '@nestjs/common';
-import { FindProductDto } from '../product/dto/find-product.dto';
 import { TopPageModel } from './top-page.model';
 import { FindTopPageDto } from './dto/find-top-page.dto';
 
@@ -8,7 +7,6 @@ export class TopPageController {
 
   @Post('create')
   async create(@Body() dto: Omit<TopPageModel, '_id'>) {
-
   }
 
   @Get(':id')
