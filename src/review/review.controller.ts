@@ -8,9 +8,9 @@ export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {
   }
 
-  @Post('create')
+  @Post('')
   create(@Body() dto: CreateReviewDto) {
-    this.reviewService.create(dto);
+    return this.reviewService.create(dto);
   }
 
   @Delete(':id')
@@ -24,6 +24,12 @@ export class ReviewController {
 
   @Get('byProduct/:productId')
   async getByProduct(@Param('productId') productId: string) {
+    console.log(productId);
     return this.reviewService.findByProductId(productId);
+  }
+
+  @Delete('byProduct/:productId')
+  async deleteByProduct(@Param('productId') productId: string) {
+    return this.reviewService.deleteByProductId(productId);
   }
 }
