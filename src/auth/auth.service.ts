@@ -37,7 +37,7 @@ export class AuthService {
       throw new UnauthorizedException(USER_NOT_FOUND);
     }
 
-    const isCorrectPassword = compare(password, user.passwordHash);
+    const isCorrectPassword = await compare(password, user.passwordHash);
     if (!isCorrectPassword) {
       throw new UnauthorizedException(WRONG_PASSWORD);
     }
