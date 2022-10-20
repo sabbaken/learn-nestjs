@@ -1,9 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, UseGuards } from '@nestjs/common';
 import { ReviewModel } from './review.model';
 import { DocumentType, ModelType } from '@typegoose/typegoose/lib/types';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { Types } from 'mongoose';
 import { InjectModel } from 'nestjs-typegoose';
+import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 
 @Injectable()
 export class ReviewService {

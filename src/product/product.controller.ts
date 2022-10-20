@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post, UseGuards 
 import { ProductModel } from './product.model';
 import { FindProductDto } from './dto/find-product.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt.guard';
+import { UserEmail } from '../decorators/user-email.decorator';
 
 @Controller('product')
 export class ProductController {
@@ -16,10 +17,8 @@ export class ProductController {
 
   }
 
-  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   async delete(@Param('id') id: string) {
-
   }
 
   @Patch(':id')
