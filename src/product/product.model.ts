@@ -1,5 +1,6 @@
 import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 import { prop } from '@typegoose/typegoose';
+import { IsOptional } from 'class-validator';
 
 class ProductCharacteristic {
   @prop()
@@ -22,8 +23,9 @@ export class ProductModel extends TimeStamps {
   @prop()
   price: number;
 
+  @IsOptional()
   @prop()
-  oldPrice: number;
+  oldPrice?: number;
 
   @prop()
   credit: number;
