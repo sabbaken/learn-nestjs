@@ -16,6 +16,7 @@ import { CreateProductDto } from './dto/create-product.dto';
 import { ProductService } from './product.service';
 import { PRODUCT_NOT_FOUND } from './product.constants';
 import { IdValidationPipe } from '../pipes/id-validation.pipe';
+import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 
 @Controller('product')
 export class ProductController {
@@ -40,7 +41,7 @@ export class ProductController {
     return product;
   }
 
-  @UseGuards()
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   async delete(@Param('id', IdValidationPipe) id: string) {
     const deletedProduct = await this.productService.deleteById(id);
@@ -50,7 +51,7 @@ export class ProductController {
     }
   }
 
-  @UseGuards()
+  @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   @Patch(':id')
   async patch(@Param('id', IdValidationPipe) id: string, @Body() dto: ProductModel) {

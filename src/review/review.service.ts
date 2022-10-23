@@ -4,7 +4,6 @@ import { DocumentType, ModelType } from '@typegoose/typegoose/lib/types';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { Types } from 'mongoose';
 import { InjectModel } from 'nestjs-typegoose';
-import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 
 @Injectable()
 export class ReviewService {
@@ -15,7 +14,7 @@ export class ReviewService {
     return this.reviewModel.create(dto);
   }
 
-  async delete(id: string): Promise<DocumentType<ReviewModel> | null> {
+  async deleteById(id: string): Promise<DocumentType<ReviewModel> | null> {
     return this.reviewModel.findByIdAndDelete(id).exec();
   }
 

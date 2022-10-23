@@ -30,9 +30,7 @@ export class TopPageAdvantages {
   description: string;
 }
 
-export interface TopPageModel extends Base {
-}
-
+export interface TopPageModel extends Base {}
 export class TopPageModel extends TimeStamps {
   @prop({ enum: TopLevelCategory })
   firstLevelCategory: TopLevelCategory;
