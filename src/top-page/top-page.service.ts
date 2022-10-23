@@ -30,4 +30,13 @@ export class TopPageService {
   async find(dto: FindTopPageDto) {
     return this.topPageModel.find({ alias: dto.firstCategory });
   }
+
+  async findByText(text: string) {
+    return this.topPageModel.find({
+      $text: {
+        $search: text,
+        $caseSensitive: false
+      }
+    });
+  }
 }
