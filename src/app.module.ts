@@ -8,6 +8,7 @@ import { ReviewModule } from './review/review.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { getMongoConfig } from './configs/mongo.config';
+import { TelegramModule } from './telegram/telegram.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { getMongoConfig } from './configs/mongo.config';
     AuthModule,
     TopPageModule,
     ProductModule,
-    ReviewModule
+    ReviewModule,
+    TelegramModule
   ],
   controllers: [AppController],
   providers: [AppService]
